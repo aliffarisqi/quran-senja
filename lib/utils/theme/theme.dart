@@ -10,7 +10,7 @@ import '../constants/colors.dart';
 class QSTheme {
   QSTheme._(); // Private constructor to prevent instantiation
 
-  // --- Light Theme ---
+  // Light Theme
   static ThemeData lightTheme = ThemeData(
     useMaterial3: true,
     fontFamily: GoogleFonts.poppins().fontFamily, // Menggunakan Poppins sebagai contoh font default
@@ -24,7 +24,7 @@ class QSTheme {
     textTheme: _textTheme,
   );
 
-  // --- Dark Theme ---
+  // Dark Theme
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: GoogleFonts.poppins().fontFamily,
@@ -38,7 +38,7 @@ class QSTheme {
     textTheme: _textTheme,
   );
 
-  // --- Themed Text Styles ---
+  // Themed Text Styles
   // This text theme is shared by both light and dark themes.
   // The color of the text will automatically adapt to the theme's brightness.
   static final TextTheme _textTheme = TextTheme(
