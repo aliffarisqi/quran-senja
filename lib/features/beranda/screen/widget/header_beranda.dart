@@ -19,8 +19,8 @@ class HeaderBeranda extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return QSRoundedContainer(
-      // Sets a linear gradient background for the container
-      gradientColor: QSColors.linerGradient,
+      // Setscolor for container backgroundx
+      backgroundColor: QSColors.white,
       // Sets the container's radius to 0 for a non-rounded, full-width look
       radius: 0,
       // Applies padding to the container's content

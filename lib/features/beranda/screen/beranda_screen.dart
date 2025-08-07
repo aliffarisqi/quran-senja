@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quransenja/common/widget/space/rounded_container.dart';
 
 import '../../../common/widget/appbar/appbar.dart';
 import '../../../common/widget/shape/app_spacing.dart';
@@ -25,6 +26,22 @@ class BerandaScreen extends StatelessWidget {
           // Sticky Search
           SliverToBoxAdapter(child: QSAppSpacing.verticalSm),
           _search(),
+
+          // List of surah
+          SliverToBoxAdapter(child: QSAppSpacing.verticalSm),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                // final product = controller.orderHistories[index];
+                return QSRoundedContainer(
+                  margin: EdgeInsets.all(QSSizes.spacingLg),
+                  height: 100,
+                  backgroundColor: QSColors.blue,
+                );
+              },
+              childCount: 10,
+            ),
+          ),
         ],
       ),
     );
@@ -33,7 +50,7 @@ class BerandaScreen extends StatelessWidget {
   _appBar() {
     return QSAppBar(
       showBackArrow: false,
-      backgroundColor: QSColors.primaryLight,
+      backgroundColor: QSColors.white,
       isHide: true,
     );
   }
