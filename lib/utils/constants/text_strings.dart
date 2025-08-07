@@ -9,6 +9,6 @@ class QSTexts {
   /// The name of the application.
   static const String appName = "Qur'an Senja";
 
-  /// A general purpose title for a section or screen.
-  static const String appTitle = "Selamat Datang";
+  /// a tagline for the application.
+  static const String appTagline = "Sahabat Terbaik Menjelang Senja";
 }
