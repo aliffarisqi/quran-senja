@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
+import '../../../utils/helpers/device_utility.dart';
 
 /// A custom AppBar widget for a consistent and reusable application header.
 ///
@@ -22,7 +23,11 @@ class QSAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.backgroundColor = QSColors.white,
     this.iconColor = QSColors.dark,
     this.onLeadingPressed,
+    this.isHide = false,
   });
+
+  /// The value to hide appbar.
+  final bool isHide;
 
   /// The title text to display in the AppBar.
   final String? title;
@@ -112,8 +117,5 @@ class QSAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize {
-    const double kAppBarHeight = kToolbarHeight;
-    return Size.fromHeight(kAppBarHeight + (hasBottomBorder ? 1.0 : 0.0));
-  }
+  Size get preferredSize => Size.fromHeight(isHide ? 0 : (QSDeviceUtils.getAppBarHeight() * (hasBottomBorder ? 2 : 1)));
 }

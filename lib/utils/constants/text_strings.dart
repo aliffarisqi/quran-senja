@@ -12,7 +12,13 @@ class QSTexts {
   /// a tagline for the application.
   static const String appTagline = "Sahabat Terbaik Menjelang Senja";
 
-  /// a name for menu beranda
+  /// a name for menu
   static const String beranda = "Beranda";
   static const String favorite = "Favorite";
+
+  /// greetings sentence for header of beranda
+  static const String greetingBeranda = "Hallo Selamat Datang Kemali, dengarkan murotal di kala senja";
+
+  /// Search place holder
+  static const String searchPlaceHolder = "Nama surah, arti, tempat turun...";
 }

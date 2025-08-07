@@ -32,7 +32,6 @@ class QSTheme {
     colorScheme: ColorScheme.dark(
       primary: QSColors.primary,
       secondary: QSColors.secondary,
-      background: QSColors.dark,
       surface: QSColors.black,
       error: QSColors.error,
     ),
@@ -59,15 +58,15 @@ class QSTheme {
     // === HEADLINE ===
     headlineLarge: GoogleFonts.museoModerno(
       fontSize: 28,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     ),
     headlineMedium: GoogleFonts.museoModerno(
       fontSize: 24,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     ),
     headlineSmall: GoogleFonts.museoModerno(
       fontSize: 22,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     ),
     // === TITLE ===
     titleLarge: GoogleFonts.museoModerno(
