@@ -11,4 +11,8 @@ class QSTexts {
 
   /// a tagline for the application.
   static const String appTagline = "Sahabat Terbaik Menjelang Senja";
+
+  /// a name for menu beranda
+  static const String beranda = "Beranda";
+  static const String favorite = "Favorite";
 }

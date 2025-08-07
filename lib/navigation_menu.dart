@@ -31,15 +31,15 @@ class NavigationMenu extends StatelessWidget {
               onDestinationSelected: (index) => controller.selectedIndex.value = index,
               backgroundColor: QSColors.white,
               indicatorColor: Colors.transparent,
-              destinations: const [
+              destinations: [
                 NavigationDestination(
                   icon: Icon(IconsaxPlusLinear.star),
-                  selectedIcon: Icon(IconsaxPlusBold.star, color: Colors.red),
+                  selectedIcon: Icon(IconsaxPlusBold.star, color: QSColors.primary),
                   label: 'Beranda',
                 ),
                 NavigationDestination(
                   icon: Icon(IconsaxPlusLinear.heart),
-                  selectedIcon: Icon(IconsaxPlusBold.heart, color: Colors.red),
+                  selectedIcon: Icon(IconsaxPlusBold.heart, color: QSColors.primary),
                   label: 'Favorite',
                 ),
               ],

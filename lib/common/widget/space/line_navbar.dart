@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quransenja/utils/constants/colors.dart';
 
 import '../../../navigation_menu.dart';
 import '../../../utils/helpers/helper_functions.dart';
@@ -18,9 +19,9 @@ class QSLineNavBar extends StatelessWidget {
       left: QSHelperFunctions.centerLineNavbar(controller.selectedIndex.value),
       width: QSHelperFunctions.screenWidth() / 4 / 2,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          color: Colors.red,
+          color: QSColors.primary,
         ),
         height: 4,
       ),

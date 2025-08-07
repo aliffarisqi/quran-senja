@@ -9,9 +9,9 @@ class QSColors {
 
   //Basic App Colors
   /// Main primary color of the app.
-  static const Color primary = Color(0xFFCE681F);
-  static const Color primaryLight = Color(0xFFFFE0E3);
-  static const Color primaryMedium = Color(0xFFFB959F);
+  static const Color primary = Color(0xFFFFB897);
+  static const Color primaryLight = Color(0xFFFFE2D4);
+  static const Color primaryMedium = Color(0xFFF96927);
   static const Color secondary = Color(0xFFFFE24B);
   static const Color accent = Color(0xFFB0C7FF);
 
@@ -30,6 +30,7 @@ class QSColors {
 
   // Background Colors
   static const Color mainBackground = Color(0xFFF6F6F6);
+
   static const Color light = Color(0xFFF0F0F0);
   static const Color primaryBackground = Color(0xFFF3F5FF);
 
