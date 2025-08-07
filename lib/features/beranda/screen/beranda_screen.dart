@@ -1,116 +1,103 @@
 import 'package:flutter/material.dart';
-import 'package:quransenja/common/widget/space/rounded_container.dart';
-import 'package:quransenja/utils/constants/images_string.dart';
-import 'package:quransenja/utils/extensions/context_extension.dart';
 
 import '../../../common/widget/appbar/appbar.dart';
+import '../../../common/widget/card/card_surah.dart';
 import '../../../common/widget/shape/app_spacing.dart';
 import '../../../common/widget/shape/search_container.dart';
-import '../../../common/widget/text/title_text.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/text_strings.dart';
+import '../controller/beranda_controller.dart';
 import 'widget/delegate/search_bar_delegate.dart';
 import 'widget/header_beranda.dart';
 
+/// The main screen for the home page (Beranda).
+///
+/// This screen displays a custom scroll view with a header, a sticky search bar,
+/// and a list of all Surahs.
 class BerandaScreen extends StatelessWidget {
   const BerandaScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Get the instance of the home screen controller.
+    final BerandaController berandaController = BerandaController.instance;
+
     return Scaffold(
-      appBar: _appBar(),
+      // Set the background color.
       backgroundColor: QSColors.white,
-      body: CustomScrollView(
-        slivers: [
-          // Header
-          _header(context),
-
-          // Sticky Search
-          SliverToBoxAdapter(child: QSAppSpacing.verticalSm),
-          _search(),
-
-          // List of surah
-          SliverToBoxAdapter(child: QSAppSpacing.verticalSm),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                // final product = controller.orderHistories[index];
-                return QSRoundedContainer(
-                  padding: EdgeInsets.all(QSSizes.spacingMd),
-                  margin: EdgeInsets.only(
-                    left: QSSizes.spacingLg,
-                    right: QSSizes.spacingLg,
-                    bottom: QSSizes.spacingMd,
-                  ),
-                  radius: QSSizes.cardRadiusLg,
-                  showBorder: true,
-                  borderColor: QSColors.primaryLight,
-                  hasShadow: true,
-                  height: 100,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(QSImages.frameUpperGrey, width: QSSizes.iconLg),
-                          Text("1", style: context.textTheme.titleLarge?.copyWith(color: QSColors.primaryMedium)),
-                          Image.asset(QSImages.frameBottomGrey, width: QSSizes.iconLg),
-                        ],
-                      ),
-                      QSAppSpacing.horizontalMd,
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            QSTextTitle(text: "Al - Fatihah"),
-                            Text(
-                              "Pembukaan",
-                              style: context.textTheme.bodyMedium,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      ),
-                      Text("الفاتحة", style: context.textTheme.titleLarge),
-                    ],
-                  ),
-                );
-              },
-              childCount: 10,
-            ),
-          ),
-        ],
-      ),
+      // The app bar for the screen.
+      appBar: _appBar(),
+      // The main body of the screen, using a CustomScrollView.
+      body: _body(context, berandaController),
     );
   }
 
-  _appBar() {
-    return QSAppBar(
+  /// Builds the main body of the screen using a CustomScrollView.
+  ///
+  /// This method organizes the UI into different slivers, including the header,
+  /// search bar, and the list of Surahs.
+  CustomScrollView _body(BuildContext context, BerandaController berandaController) {
+    return CustomScrollView(
+      slivers: [
+        // A non-scrolling widget for the header.
+        _header(),
+        // A vertical space.
+        SliverToBoxAdapter(child: QSAppSpacing.verticalSm),
+        // The sticky search bar.
+        _search(),
+        // A vertical space.
+        SliverToBoxAdapter(child: QSAppSpacing.verticalLg),
+        // The list of Surahs.
+        _listSurah(berandaController),
+      ],
+    );
+  }
+
+  /// Builds the custom app bar for the screen.
+  QSAppBar _appBar() {
+    return const QSAppBar(
       showBackArrow: false,
       backgroundColor: QSColors.white,
       isHide: true,
     );
   }
 
-  _search() {
+  /// Builds the home screen header widget.
+  SliverToBoxAdapter _header() => const SliverToBoxAdapter(child: HeaderBeranda());
+
+  /// Builds the sticky search bar.
+  SliverPersistentHeader _search() {
     return SliverPersistentHeader(
+      // Pins the header to the top when scrolling.
       pinned: true,
       delegate: QSSearchBarDelegate(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: QSSizes.spacingLg),
+        child: const Padding(
+          padding: EdgeInsets.symmetric(horizontal: QSSizes.spacingLg),
           child: QSSearchContainer(
             showBorder: false,
             text: QSTexts.searchPlaceHolder,
-            onTap: () {},
+            // The onTap function is left empty here.
+            onTap: null,
           ),
         ),
       ),
     );
   }
 
-  _header(BuildContext context) => SliverToBoxAdapter(child: HeaderBeranda());
+  /// Builds the list of Surah cards.
+  SliverList _listSurah(BerandaController berandaController) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          // Get the Surah model for the current index.
+          final product = berandaController.surahList[index];
+          // Return a Surah card widget.
+          return CardSurah(product: product);
+        },
+        // The total number of Surahs to display.
+        childCount: berandaController.surahList.length,
+      ),
+    );
+  }
 }
