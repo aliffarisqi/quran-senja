@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+
+import '../../../features/navigation_menu.dart';
+import '../../../utils/helpers/helper_functions.dart';
+
+class QSLineNavBar extends StatelessWidget {
+  const QSLineNavBar({
+    super.key,
+    required this.controller,
+  });
+
+  final NavigationController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      top: 0,
+      left: QSHelperFunctions.centerLineNavbar(controller.selectedIndex.value),
+      width: QSHelperFunctions.screenWidth() / 4 / 3,
+      child: Container(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          color: Colors.red,
+        ),
+        height: 4,
+      ),
+    );
+  }
+}
