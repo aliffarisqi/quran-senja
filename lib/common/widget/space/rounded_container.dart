@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 
-class ACLRoundedContainer extends StatelessWidget {
-  const ACLRoundedContainer({
+class QSRoundedContainer extends StatelessWidget {
+  const QSRoundedContainer({
     super.key,
     this.width,
     this.height,

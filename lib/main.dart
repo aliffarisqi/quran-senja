@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'app.dart';
 
-void main() {
+Future<void> main() async {
   //--  Add Widgets Binding
-  final WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
 
   runApp(const App());
 }

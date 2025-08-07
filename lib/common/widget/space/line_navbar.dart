@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../features/navigation_menu.dart';
+import '../../../navigation_menu.dart';
 import '../../../utils/helpers/helper_functions.dart';
 
 class QSLineNavBar extends StatelessWidget {

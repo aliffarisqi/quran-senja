@@ -41,3 +41,4 @@ flutter:
   #-------------------------LOCAL ASSETS-----------------------#
   assets:
     - assets/images/
+    - assets/icons/

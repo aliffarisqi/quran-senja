@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
-import 'package:quransenja/features/beranda/screen/beranda_screen.dart';
-import 'package:quransenja/features/favorite/screen/favorite_screen.dart';
-import 'package:quransenja/utils/constants/colors.dart';
 
-import '../common/widget/space/line_navbar.dart';
-import '../utils/helpers/helper_functions.dart';
+import 'common/widget/space/line_navbar.dart';
+import 'features/beranda/screen/beranda_screen.dart';
+import 'features/favorite/screen/favorite_screen.dart';
+import 'utils/constants/colors.dart';
+import 'utils/helpers/helper_functions.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({

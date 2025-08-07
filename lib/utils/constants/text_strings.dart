@@ -2,8 +2,8 @@
 ///
 /// This helps in centralizing text assets, making it easier to manage translations
 /// and maintain consistency across the UI.
-class ACLTexts {
-  ACLTexts._(); // Private constructor to prevent instantiation
+class QSTexts {
+  QSTexts._(); // Private constructor to prevent instantiation
 
   // General Texts
   /// The name of the application.
