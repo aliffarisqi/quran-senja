@@ -16,7 +16,7 @@ class QSLineNavBar extends StatelessWidget {
     return Positioned(
       top: 0,
       left: QSHelperFunctions.centerLineNavbar(controller.selectedIndex.value),
-      width: QSHelperFunctions.screenWidth() / 4 / 3,
+      width: QSHelperFunctions.screenWidth() / 4 / 2,
       child: Container(
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10)),

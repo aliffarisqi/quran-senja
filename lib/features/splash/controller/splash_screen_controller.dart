@@ -12,9 +12,8 @@ class SplashScreenController extends GetxController {
     loadData();
   }
 
-  void loadData() {
-    Timer(const Duration(seconds: 2), () {
-      Get.offAll(() => const NavigationMenu());
-    });
+  Future<void> loadData() async {
+    await Future.delayed(const Duration(seconds: 2));
+    Get.offAll(() => const NavigationMenu());
   }
 }

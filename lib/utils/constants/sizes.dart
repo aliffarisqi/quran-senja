@@ -33,6 +33,8 @@ class QSSizes {
 
   /// Image sizes
   static const double imageThumbSize = 80.0;
+  static const double imageSizeMd = 120.0;
+  static const double imageSizeSm = 100.0;
 
   /// Default spacing between sections
   static const double defaultSpace = 24.0;

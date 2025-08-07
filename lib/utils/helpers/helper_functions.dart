@@ -20,8 +20,11 @@ class QSHelperFunctions {
     return MediaQuery.of(Get.context!).size.width;
   }
 
-  static double centerLineNavbar(int selectedIndex) {
+  static double centerLineNavbar(int selectedIndex, {int navItemCount = 2, double indicatorWidth = 50}) {
     double screenWidth = QSHelperFunctions.screenWidth();
-    return (screenWidth / 4) * selectedIndex + (screenWidth / 4 / 2) - (screenWidth / 4 / 3 / 1.9);
+    double itemWidth = screenWidth / navItemCount;
+    double itemCenter = itemWidth * selectedIndex + itemWidth / 2;
+
+    return itemCenter - indicatorWidth / 2;
   }
 }
