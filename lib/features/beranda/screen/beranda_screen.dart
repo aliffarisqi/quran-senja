@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:quransenja/common/widget/space/rounded_container.dart';
+import 'package:quransenja/utils/constants/images_string.dart';
+import 'package:quransenja/utils/extensions/context_extension.dart';
 
 import '../../../common/widget/appbar/appbar.dart';
 import '../../../common/widget/shape/app_spacing.dart';
 import '../../../common/widget/shape/search_container.dart';
+import '../../../common/widget/text/title_text.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/text_strings.dart';
@@ -34,9 +37,47 @@ class BerandaScreen extends StatelessWidget {
               (context, index) {
                 // final product = controller.orderHistories[index];
                 return QSRoundedContainer(
-                  margin: EdgeInsets.all(QSSizes.spacingLg),
+                  padding: EdgeInsets.all(QSSizes.spacingMd),
+                  margin: EdgeInsets.only(
+                    left: QSSizes.spacingLg,
+                    right: QSSizes.spacingLg,
+                    bottom: QSSizes.spacingMd,
+                  ),
+                  radius: QSSizes.cardRadiusLg,
+                  showBorder: true,
+                  borderColor: QSColors.primaryLight,
+                  hasShadow: true,
                   height: 100,
-                  backgroundColor: QSColors.blue,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(QSImages.frameUpperGrey, width: QSSizes.iconLg),
+                          Text("1", style: context.textTheme.titleLarge?.copyWith(color: QSColors.primaryMedium)),
+                          Image.asset(QSImages.frameBottomGrey, width: QSSizes.iconLg),
+                        ],
+                      ),
+                      QSAppSpacing.horizontalMd,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            QSTextTitle(text: "Al - Fatihah"),
+                            Text(
+                              "Pembukaan",
+                              style: context.textTheme.bodyMedium,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Text("الفاتحة", style: context.textTheme.titleLarge),
+                    ],
+                  ),
                 );
               },
               childCount: 10,
@@ -62,6 +103,7 @@ class BerandaScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: QSSizes.spacingLg),
           child: QSSearchContainer(
+            showBorder: false,
             text: QSTexts.searchPlaceHolder,
             onTap: () {},
           ),

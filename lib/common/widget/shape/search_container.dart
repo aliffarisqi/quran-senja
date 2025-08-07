@@ -61,18 +61,18 @@ class QSSearchContainer extends StatelessWidget {
         // Defines the visual decoration of the container
         decoration: BoxDecoration(
           // Sets the background color based on the showBackground flag
-          color: showBackground ? QSColors.white : Colors.transparent,
+          color: showBackground ? QSColors.primaryLight : Colors.transparent,
 
           // Applies a border radius for rounded corners
           borderRadius: BorderRadius.circular(QSSizes.borderRadiusLg),
 
           // Sets the border if the showBorder flag is true
-          border: showBorder ? Border.all(color: QSColors.grey) : null,
+          border: showBorder ? Border.all(color: QSColors.primaryMedium) : null,
         ),
         child: Row(
           children: [
             // Displays the search icon with a constant color
-            Icon(icon, color: QSColors.darkerGrey),
+            Icon(icon, color: QSColors.dark),
 
             // Adds horizontal space between the icon and the text
             const SizedBox(width: QSSizes.spacingMd),
