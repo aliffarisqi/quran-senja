@@ -28,11 +28,11 @@ class SplashScreen extends StatelessWidget {
             Image.asset(QSImages.logoQuranSenja, width: QSSizes.imageSizeMd),
             QSAppSpacing.verticalXl,
 
-            // title app name
+            // Display title app name
             Text(QSTexts.appName, style: context.textTheme.titleLarge),
             QSAppSpacing.verticalSm,
 
-            // tagline for the app name
+            // Display tagline for the app name
             Text(QSTexts.appTagline, style: context.textTheme.bodyMedium),
           ],
         ),

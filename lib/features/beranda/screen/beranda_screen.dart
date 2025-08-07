@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quransenja/common/widget/card/card_empty.dart';
 
 import '../../../common/widget/appbar/appbar.dart';
 import '../../../common/widget/card/card_surah.dart';
@@ -49,7 +51,9 @@ class BerandaScreen extends StatelessWidget {
         // A vertical space.
         SliverToBoxAdapter(child: QSAppSpacing.verticalLg),
         // The list of Surahs.
-        _listSurah(berandaController),
+        Obx(
+          () => berandaController.surahList.isEmpty ? _emptyData() : _listSurah(berandaController),
+        ),
       ],
     );
   }
@@ -60,6 +64,18 @@ class BerandaScreen extends StatelessWidget {
       showBackArrow: false,
       backgroundColor: QSColors.white,
       isHide: true,
+    );
+  }
+
+  /// Build empty card when list of surah is empty
+  SliverToBoxAdapter _emptyData() {
+    return const SliverToBoxAdapter(
+      child: Padding(
+        padding: EdgeInsets.all(QSSizes.spacingMd),
+        child: QSCardEmpty(
+          title: "Tidak Ada Data Surah",
+        ),
+      ),
     );
   }
 

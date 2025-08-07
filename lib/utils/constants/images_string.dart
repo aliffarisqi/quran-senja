@@ -18,4 +18,8 @@ class QSImages {
   static const String frameUpperGrey = "assets/icons/frame_upper_grey.png";
   static const String frameBottomPrimary = "assets/icons/frame_bottom_primary.png";
   static const String frameBottomGrey = "assets/icons/frame_bottom_grey.png";
+
+  // image emprt data
+  static const String empty = "assets/images/error.png";
+  static const String notFound = "assets/images/not_found.png";
 }
