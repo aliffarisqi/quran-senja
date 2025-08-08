@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/colors.dart';
+import 'text_field_theme.dart';
 
 /// Custom theme data for the Qur'an Senja application.
 ///
@@ -22,6 +23,7 @@ class QSTheme {
       error: QSColors.error,
     ),
     textTheme: _textTheme,
+    inputDecorationTheme: QSTextFieldTheme.lightInputDecorationTheme,
   );
 
   // Dark Theme
