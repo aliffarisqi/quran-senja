@@ -9,6 +9,7 @@ import '../../../common/widget/shape/search_container.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/text_strings.dart';
+import '../../murotal/screen/detail_murotal_screen.dart';
 import '../../search/screen/search_screen.dart';
 import '../controller/beranda_controller.dart';
 import 'widget/delegate/search_bar_delegate.dart';
@@ -110,7 +111,10 @@ class BerandaScreen extends StatelessWidget {
           // Get the Surah model for the current index.
           final surah = berandaController.surahList[index];
           // Return a Surah card widget.
-          return CardSurah(surah: surah);
+          return CardSurah(
+            surah: surah,
+            onTap: () => Get.to(() => DetailMurotalScreen(surahNumber: surah.nomor)),
+          );
         },
         // The total number of Surahs to display.
         childCount: berandaController.surahList.length,

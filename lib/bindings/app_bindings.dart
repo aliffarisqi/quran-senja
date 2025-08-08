@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 
 import '../features/beranda/controller/beranda_controller.dart';
+import '../features/murotal/controller/detail_surah_controller.dart';
+import '../features/murotal/controller/murotal_playback_controller.dart';
 import '../features/search/controller/search_controller.dart';
 import '../features/splash/controller/splash_screen_controller.dart';
 import '../navigation_menu.dart';
@@ -29,5 +31,9 @@ class QSAppBinding extends Bindings {
 
     // Search screen controller.
     Get.lazyPut(() => QSSearchController(), fenix: true);
+
+    // detail surah screen
+    Get.lazyPut(() => DetailSurahController(), fenix: true);
+    Get.lazyPut(() => SurahPlaybackController(), fenix: true);
   }
 }
