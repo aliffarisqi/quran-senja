@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quransenja/common/widget/card/card_empty.dart';
 
 import '../../../common/widget/appbar/appbar.dart';
+import '../../../common/widget/card/card_empty.dart';
 import '../../../common/widget/card/card_surah.dart';
 import '../../../common/widget/shape/app_spacing.dart';
 import '../../../common/widget/shape/search_container.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/constants/text_strings.dart';
+import '../../search/screen/search_screen.dart';
 import '../controller/beranda_controller.dart';
 import 'widget/delegate/search_bar_delegate.dart';
 import 'widget/header_beranda.dart';
@@ -88,13 +89,13 @@ class BerandaScreen extends StatelessWidget {
       // Pins the header to the top when scrolling.
       pinned: true,
       delegate: QSSearchBarDelegate(
-        child: const Padding(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: QSSizes.spacingLg),
           child: QSSearchContainer(
             showBorder: false,
             text: QSTexts.searchPlaceHolder,
-            // The onTap function is left empty here.
-            onTap: null,
+            // The onTap function to search screen.
+            onTap: () => Get.to(() => const SearchScreen()),
           ),
         ),
       ),
@@ -107,9 +108,9 @@ class BerandaScreen extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           // Get the Surah model for the current index.
-          final product = berandaController.surahList[index];
+          final surah = berandaController.surahList[index];
           // Return a Surah card widget.
-          return CardSurah(product: product);
+          return CardSurah(surah: surah);
         },
         // The total number of Surahs to display.
         childCount: berandaController.surahList.length,
