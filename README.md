@@ -1,16 +1,71 @@
 # quransenja
 
-A new Flutter project.
+**Quran Senja** is a mobile application built with the latest **Flutter** and powered by **GetX state management**. It provides a complete experience for reading and listening to the Quran, focusing on clean architecture, efficient audio playback (even for long-duration files), and responsive user interaction.
+
+---
+
+## Key Features
+
+- **Surah List Display**  
+  Fetches all surahs from a public API, displaying surah name, meaning, number of verses, and surah type.
+
+- **Surah Search**  
+  Instantly search surahs by name meaning of name surah, and the place mecca or medina using a responsive, real-time search bar powered by GetX.
+
+- **Full Surah Audio Playback**  
+  Each surah has a single, full-length audio file with:
+  - Play and Pause, Next and Previous controls
+  - Interactive seekbar or slider
+  - Buffer information slider
+  - Current time & total duration
+  - **Loading indicator** for partially loaded audio
+
+- **Auto-Next Surah**  
+  Automatically plays the next surah when the current one finishes.
+
+- **Long Audio Duration Support**  
+  Designed to handle surah audio files up to 2+ hours with correct slider and playback status handling.
+
+- **Modern Architecture**  
+  - `Controller`: GetX logic per module
+  - `Service`: API handling with Dio
+  - `Model`: Structured response parsing
+  - `Views`: Responsive & clean UI components
+
+---
+
+## Tech Stack
+
+| Tech          | Purpose                          |
+|---------------|----------------------------------|
+| Flutter       | Mobile SDK                       |
+| GetX          | State Management & Routing       |
+| Dio           | HTTP Client for APIs             |
+| Just Audio    | Audio player integration         |
+| GitHub        | Version Control                  |
+
+---
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. **Clone the repo:**
 
-A few resources to get you started if this is your first Flutter project:
+   ```bash
+   git clone https://github.com/aliffarisqi/quran-senja.git
+   cd quran-senja
+   
+2. **Install dependencies
+   ```bash
+   flutter pub get
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+3. **Run app
+   ```bash
+   flutter run
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## API Source
+This app uses a free public API provided by Santrikoding:
+
+### List Surah: https://quran-api.santrikoding.com/api/surah
+
+### Surah Detail: https://quran-api.santrikoding.com/api/surah/{nomor}
+
