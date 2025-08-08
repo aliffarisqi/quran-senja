@@ -17,7 +17,7 @@ class QSTexts {
   static const String favorite = "Favorite";
 
   /// greetings sentence for header of beranda
-  static const String greetingBeranda = "Hallo Selamat Datang Kemali, dengarkan murotal di kala senja";
+  static const String greetingBeranda = "Assalamualaikum, Selamat Datang Kemali dengarkan murotal di kala senja";
 
   /// Search place holder
   static const String searchPlaceHolder = "Nama surah, arti, tempat turun...";

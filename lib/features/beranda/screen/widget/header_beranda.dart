@@ -4,6 +4,7 @@ import 'package:quransenja/utils/extensions/context_extension.dart';
 import '../../../../common/widget/shape/app_spacing.dart';
 import '../../../../common/widget/space/rounded_container.dart';
 import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/images_string.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../../../utils/constants/text_strings.dart';
 
@@ -33,12 +34,20 @@ class HeaderBeranda extends StatelessWidget {
         // Aligns children to the start of the cross-axis (left)
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Displays the app name with a specific headline style and color
-          Text(
-            QSTexts.appName,
-            style: context.textTheme.headlineLarge?.copyWith(
-              color: QSColors.primaryMedium,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              // Displays the app name with a specific headline style and color
+              Text(
+                QSTexts.appName,
+                style: context.textTheme.headlineLarge?.copyWith(
+                  color: QSColors.primaryMedium,
+                ),
+              ),
+              // Display Image logo
+              Image.asset(QSImages.logoQuranSenjaNew, width: QSSizes.iconLg),
+            ],
           ),
           // Adds a small vertical space
           QSAppSpacing.verticalSm,

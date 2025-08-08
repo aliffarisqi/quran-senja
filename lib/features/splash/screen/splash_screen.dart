@@ -25,7 +25,7 @@ class SplashScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Display image splash screen
-            Image.asset(QSImages.logoQuranSenja, width: QSSizes.imageSizeMd),
+            Image.asset(QSImages.logoQuranSenjaNew, width: QSSizes.imageSizeMd),
             QSAppSpacing.verticalXl,
 
             // Display title app name

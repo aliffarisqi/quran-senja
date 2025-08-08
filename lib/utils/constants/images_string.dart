@@ -8,6 +8,7 @@ class QSImages {
   // App Logos
   // The primary logo for the Qur'an Senja application.
   static const String logoQuranSenja = "assets/icons/quran.png";
+  static const String logoQuranSenjaNew = "assets/icons/quran_reading.png";
 
   // icon frame for ayah
   static const String frameOne = "assets/icons/frame_one.png";
