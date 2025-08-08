@@ -44,7 +44,7 @@ class SplashScreenController extends GetxController {
       }
     } catch (e) {
       // Catch any exceptions and show a user-friendly snackbar.
-      Get.snackbar('Error', 'Failed to load Surah data: $e');
+      Get.snackbar('Mohon Maaf', 'Gagal mengambil data surah');
     } finally {
       // Ensure navigation always occurs, regardless of success or failure.
       // The `offAll` method removes all previous routes from the stack.

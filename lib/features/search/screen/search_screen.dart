@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quransenja/utils/constants/images_string.dart';
 
 import '../../../common/widget/animation/image_title_sub_title.dart';
 import '../../../common/widget/card/card_surah.dart';
 import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/images_string.dart';
 import '../../../utils/constants/sizes.dart';
+import '../../murotal/screen/detail_murotal_screen.dart';
 import '../controller/search_controller.dart';
 import 'widget/appbar_search.dart';
 
@@ -52,7 +53,10 @@ class SearchScreen extends StatelessWidget {
     return ListView.builder(
       padding: const EdgeInsets.only(top: QSSizes.spacingLg),
       itemCount: results.length,
-      itemBuilder: (_, i) => CardSurah(surah: results[i]),
+      itemBuilder: (_, i) => CardSurah(
+        surah: results[i],
+        onTap: () => Get.to(() => DetailMurotalScreen(surahNumber: results[i].nomor)),
+      ),
     );
   }
 
