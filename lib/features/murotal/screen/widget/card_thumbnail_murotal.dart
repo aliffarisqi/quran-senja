@@ -22,77 +22,81 @@ class CardThumbnailMurotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // We can safely use '!' here because this widget is only built after
-    // the data is successfully loaded in the parent screen.
     final playbackController = SurahPlaybackController.instance;
 
-    return Column(
-      children: [
-        Obx(
-          () => Padding(
-            padding: const EdgeInsets.all(QSSizes.spacingLg),
-            child: QSRoundedContainer(
-              backgroundColor: QSColors.white,
-              showBorder: true,
-              borderColor: QSColors.primaryLight,
-              hasShadow: true,
-              padding: const EdgeInsets.all(QSSizes.spacingLg),
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
+    // The entire content is wrapped in Obx to reactively respond to changes
+    // in currentSurah from the controller.
+    return Obx(() {
+      final surah = playbackController.currentSurah;
+
+      // Only build the card if the surah data is available.
+      // This prevents runtime errors from accessing a null value.
+      if (surah == null) {
+        return const SizedBox.shrink(); // Return an empty widget if data is not yet loaded.
+      }
+
+      return Padding(
+        padding: const EdgeInsets.all(QSSizes.spacingLg),
+        child: QSRoundedContainer(
+          backgroundColor: QSColors.white,
+          showBorder: true,
+          borderColor: QSColors.primaryLight,
+          hasShadow: true,
+          padding: const EdgeInsets.all(QSSizes.spacingLg),
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Displays the Ayah number using the custom card widget.
+              QSAyahCard(nomorAyah: surah.nomor),
+              // Conditionally displays the Mecca or Medina image based on the Surah's place of revelation.
+              Image.asset(
+                surah.tempatTurun == "madinah" ? QSImages.medina : QSImages.mecca,
+                width: QSHelperFunctions.screenWidth() / 2,
+              ),
+              QSAppSpacing.verticalLg,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  // Displays the Ayah number using the custom card widget.
-                  QSAyahCard(nomorAyah: playbackController.currentSurah!.nomor),
-                  // Conditionally displays the Mecca or Medina image based on the Surah's place of revelation.
-                  Image.asset(
-                    playbackController.currentSurah!.tempatTurun == "madinah" ? QSImages.medina : QSImages.mecca,
-                    width: QSHelperFunctions.screenWidth() / 2,
+                  // Left column: Surah name and meaning.
+                  Flexible(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          surah.namaLatin,
+                          style: context.textTheme.headlineLarge,
+                        ),
+                        Text(
+                          "${surah.arti} - ${surah.tempatTurun}",
+                          style: context.textTheme.titleSmall,
+                        ),
+                      ],
+                    ),
                   ),
-                  QSAppSpacing.verticalLg,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // Right column: Surah Arabic name and number of verses.
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      // Left column: Surah name and meaning.
-                      Flexible(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              playbackController.currentSurah!.namaLatin,
-                              style: context.textTheme.headlineLarge,
-                            ),
-                            Text(
-                              "${playbackController.currentSurah!.arti} - ${playbackController.currentSurah!.tempatTurun}",
-                              style: context.textTheme.titleSmall,
-                            ),
-                          ],
-                        ),
+                      Text(
+                        surah.nama,
+                        style: context.textTheme.titleSmall,
                       ),
-                      // Right column: Surah Arabic name and number of verses.
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Text(
-                            playbackController.currentSurah!.nama,
-                            style: context.textTheme.titleSmall,
-                          ),
-                          Text(
-                            "${playbackController.currentSurah!.jumlahAyat.toString()} Ayat",
-                            style: context.textTheme.titleLarge?.copyWith(
-                              color: QSColors.primaryMedium,
-                            ),
-                          ),
-                        ],
+                      Text(
+                        "${surah.jumlahAyat.toString()} Ayat",
+                        style: context.textTheme.titleLarge?.copyWith(
+                          color: QSColors.primaryMedium,
+                        ),
                       ),
                     ],
                   ),
                 ],
               ),
-            ),
+            ],
           ),
         ),
-      ],
-    );
+      );
+    });
   }
 }
