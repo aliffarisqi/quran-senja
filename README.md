@@ -2,6 +2,10 @@
 
 **Quran Senja** is a mobile application built with the latest **Flutter** and powered by **GetX state management**. It provides a complete experience for reading and listening to the Quran, focusing on clean architecture, efficient audio playback (even for long-duration files), and responsive user interaction.
 
+<img width="1512" height="982" alt="Image" src="https://github.com/user-attachments/assets/ee8600a2-1973-44ad-97c8-7b5734deacb4" />
+<img width="1512" height="982" alt="Image" src="https://github.com/user-attachments/assets/fa2b180b-6914-46ed-ab24-df09bafe606b" />
+<img width="1512" height="982" alt="Image" src="https://github.com/user-attachments/assets/865bfddd-d5e3-4153-a0eb-6af016c63d10" />
+<img width="1512" height="982" alt="Image" src="https://github.com/user-attachments/assets/557bec0d-0ea9-4ce0-b4a7-f2b495157840" />
 ---
 
 ## Key Features
