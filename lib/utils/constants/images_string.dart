@@ -23,4 +23,8 @@ class QSImages {
   // image emprt data
   static const String empty = "assets/images/error.png";
   static const String notFound = "assets/images/not_found.png";
+
+  // mosque image
+  static const String medina = "assets/images/medina.png";
+  static const String mecca = "assets/images/mecca.png";
 }
