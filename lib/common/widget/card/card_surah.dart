@@ -16,11 +16,11 @@ import '../../../utils/constants/sizes.dart';
 class CardSurah extends StatelessWidget {
   const CardSurah({
     super.key,
-    required this.product,
+    required this.surah,
   });
 
   /// The Surah model containing all the data to be displayed.
-  final SurahModel product;
+  final SurahModel surah;
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +53,10 @@ class CardSurah extends StatelessWidget {
             children: [
               // Top frame image for the number
               Image.asset(QSImages.frameUpperGrey, width: QSSizes.iconLg),
+              QSAppSpacing.verticalSm,
               // Surah number displayed with a title style and a specific color
               Text(
-                product.nomor.toString(),
+                surah.nomor.toString(),
                 style: context.textTheme.titleLarge?.copyWith(
                   color: QSColors.primaryMedium,
                 ),
@@ -75,21 +76,26 @@ class CardSurah extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Surah name in Latin using a custom text title widget
-                QSTextTitle(text: product.namaLatin),
+                QSTextTitle(text: surah.namaLatin),
                 // Surah meaning text with a body style
                 Text(
-                  product.arti,
+                  surah.arti,
                   style: context.textTheme.bodyMedium,
                   maxLines: 1, // Restricts text to a single line
                   overflow: TextOverflow.ellipsis, // Adds "..." if text is too long
+                ),
+                // total ayah
+                Text(
+                  "${surah.tempatTurun} (${surah.jumlahAyat} Ayat)",
+                  style: context.textTheme.labelMedium?.copyWith(color: QSColors.primary),
                 ),
               ],
             ),
           ),
           // Surah name in Arabic with a title style
           Text(
-            product.nama,
-            style: context.textTheme.titleLarge,
+            surah.nama,
+            style: context.textTheme.headlineSmall,
           ),
         ],
       ),
