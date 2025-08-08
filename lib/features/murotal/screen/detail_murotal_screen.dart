@@ -61,7 +61,7 @@ class _DetailMurotalScreenState extends State<DetailMurotalScreen> {
           : Stack(
               children: [
                 // Displays the Surah thumbnail and details.
-                CardThumbnailMurotal(detailSurahController: detailSurahController),
+                CardThumbnailMurotal(),
                 // Displays the audio playback controls.
                 PlaybackControll()
               ],
