@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart' as dio;
 
+import '../../features/murotal/model/detail_surah_model.dart';
 import '../../shared/models/surah_model.dart';
 import '../constant/api_url.dart';
 import '../constant/get_headers.dart';
@@ -32,6 +33,24 @@ class SurahService {
 
       // Map the dynamic list to a list of SurahModel objects.
       final result = data.map((e) => SurahModel.fromJson(e)).toList();
+
+      // Return a successful result with the list of Surahs.
+      return ApiSuccess(result);
+    } catch (e) {
+      // Catch any errors and return an error result.
+      return ApiError(e.toString());
+    }
+  }
+
+  Future<ApiResult<DetailSurahResponse>> getDetailSurah(int nomor) async {
+    try {
+      final dio.Response response = await _dioClient.get(
+        '${ApiUrl.surah}/$nomor',
+        options: dio.Options(headers: QSHeaders.basicJson),
+      );
+
+      final data = response.data;
+      final result = DetailSurahResponse.fromJson(data);
 
       // Return a successful result with the list of Surahs.
       return ApiSuccess(result);
